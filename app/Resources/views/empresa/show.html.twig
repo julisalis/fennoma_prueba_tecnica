@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="page-header"><h1>Ver Empresa</h1></div>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ empresa.id }}</td>
+            </tr>
+            <tr>
+                <th>Cuit</th>
+                <td>{{ empresa.cuit }}</td>
+            </tr>
+            <tr>
+                <th>Nombre</th>
+                <td>{{ empresa.nombre }}</td>
+            </tr>
+            <tr>
+                <th>Cant. Empleados</th>
+                <td>{{ empresa.empleados }}</td>
+            </tr>
+        </tbody>
+    </table>
+            <a href="{{ path('empresa_edit', { 'id': empresa.id }) }}" class="btn btn-warning">Editar</a>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Eliminar" class="btn btn-danger">
+            {{ form_end(delete_form) }}
+            <a href="{{ path('empresa_index') }}" class="btn btn-primary">Volver a la lista</a>
+{% endblock %}
